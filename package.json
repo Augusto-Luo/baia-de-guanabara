@@ -1,0 +1,31 @@
+{
+  "name": "baia-de-guanabara-3d",
+  "version": "1.0.0",
+  "description": "AAA-quality real-time 3D interactive panorama of Baía de Guanabara (Rio de Janeiro & Niterói) in Three.js with HDR anisotropic planar water reflections, multi-species Mata Atlântica foliage, and recognizable landmarks.",
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "threejs",
+    "webgl2",
+    "glsl",
+    "water-reflections",
+    "procedural-generation",
+    "rio-de-janeiro",
+    "guanabara-bay",
+    "3d-landscape"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5173",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4173"
+  },
+  "dependencies": {
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "vite": "^7.2.2"
+  }
+}

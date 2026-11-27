@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Baía de Guanabara 3D — Rio de Janeiro &amp; Niterói</title>
+  <link rel="stylesheet" href="./src/styles.css" />
+</head>
+<body>
+  <div id="canvas-container"></div>
+
+  <!-- Minimalist Loading Curtain -->
+  <div id="loading-screen">
+    <div class="loading-inner">
+      <div class="loading-kicker">RIO DE JANEIRO · NITERÓI · 22°54′S 43°09′W</div>
+      <h1 class="loading-title">BAÍA DE GUANABARA</h1>
+      <div class="loading-sub">Procedural AAA Coastal Panorama · Real-Time HDR Planar Reflections</div>
+      <div class="loading-bar-track">
+        <div class="loading-bar-fill" id="loading-bar"></div>
+      </div>
+      <div class="loading-status" id="loading-status">Synthesizing Mata Atlântica botanical textures...</div>
+    </div>
+  </div>
+
+  <!-- 3D Projected Landmark Labels Layer -->
+  <div id="landmark-labels" class="landmark-labels hidden"></div>
+
+  <!-- Cinematic HUD Overlay -->
+  <div id="hud" class="hud">
+    <!-- Top Left Brand & Telemetry -->
+    <header class="hud-header">
+      <div class="brand-badge">
+        <div class="brand-title">BAÍA DE GUANABARA</div>
+        <div class="brand-subtitle" id="current-view-label">Parque da Cidade · Twilight Panorama</div>
+      </div>
+      <div class="top-actions">
+        <button id="btn-labels" class="icon-pill" title="Toggle Landmark Labels (L)">
+          <span class="dot"></span>Landmarks
+        </button>
+        <button id="btn-settings" class="icon-pill" title="Atmosphere &amp; Water Controls">
+          Atmosphere
+        </button>
+        <button id="btn-cinema" class="icon-pill" title="Cinema Mode (H)">
+          Hide HUD
+        </button>
+      </div>
+    </header>
+
+    <!-- Collapsible Atmosphere & Graphics Drawer -->
+    <aside id="settings-drawer" class="settings-drawer collapsed">
+      <div class="drawer-section">
+        <div class="drawer-label">Lighting Mood</div>
+        <div class="mood-grid" id="mood-buttons">
+          <button class="mood-btn active" data-mood="twilight">Twilight</button>
+          <button class="mood-btn" data-mood="golden">Golden Hour</button>
+          <button class="mood-btn" data-mood="bluehour">Blue Hour</button>
+          <button class="mood-btn" data-mood="night">Rio Night</button>
+        </div>
+      </div>
+
+      <div class="drawer-section">
+        <div class="slider-row">
+          <span>Water Breeze</span>
+          <span id="val-wind">28%</span>
+        </div>
+        <input id="slider-wind" type="range" min="0" max="100" value="28" />
+      </div>
+
+      <div class="drawer-section">
+        <div class="slider-row">
+          <span>Reflection Crispness</span>
+          <span id="val-refl">86%</span>
+        </div>
+        <input id="slider-refl" type="range" min="20" max="100" value="86" />
+      </div>
+
+      <div class="drawer-section">
+        <div class="slider-row">
+          <span>HDR Bloom</span>
+          <span id="val-bloom">48%</span>
+        </div>
+        <input id="slider-bloom" type="range" min="0" max="100" value="48" />
+      </div>
+
+      <div class="drawer-section">
+        <div class="drawer-label">Planar Reflection Quality</div>
+        <div class="quality-row" id="quality-buttons">
+          <button class="q-btn" data-quality="medium">Medium</button>
+          <button class="q-btn" data-quality="high">High</button>
+          <button class="q-btn active" data-quality="ultra">Ultra</button>
+        </div>
+      </div>
+
+      <div class="drawer-footer">
+        <div class="controls-hint">Drag: Orbit · Right-Drag: Pan · Scroll: Zoom · WASD: Fly · L: Labels · H: HUD</div>
+        <div class="fps-readout" id="fps-readout">-- FPS</div>
+      </div>
+    </aside>
+
+    <!-- Bottom Landmark Camera Presets Dock -->
+    <nav class="camera-dock" id="camera-dock" aria-label="Landmark Camera Views"></nav>
+  </div>
+
+  <!-- Subtle Restore HUD Pill in Cinema Mode -->
+  <button id="btn-restore-hud" class="restore-hud-btn hidden">Show HUD (H)</button>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
